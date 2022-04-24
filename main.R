@@ -78,33 +78,40 @@ if(semanas_cotizadas>250){
     }
   }
 
-  #dependencia economica del padre
-  padre<-readline(prompt = "¿Su padre depende economicamente de usted (poner si o no)? ")
+  if(num_hijos==0 && conyuge=="no"){
+    #dependencia economica del padre
+    padre<-readline(prompt = "¿Su padre depende economicamente de usted (poner si o no)? ")
 
-  #edad del padre en caso de depender economicamente
-  if(padre=="si"){
-    #edad del padre
-    edad_padre<-as.numeric(readline(prompt = "¿Cuántos años tiene su padre?: "))
-    #sexo del padre
-    sexo_padre<-"h"
-  }else{
-    edad_padre<-"NA"
-    sexo_padre<-"NA"
-    }
+    #edad del padre en caso de depender economicamente
+    if(padre=="si"){
+      #edad del padre
+      edad_padre<-as.numeric(readline(prompt = "¿Cuántos años tiene su padre?: "))
+      #sexo del padre
+      sexo_padre<-"h"
+    }else{
+      edad_padre<-"NA"
+      sexo_padre<-"NA"
+      }
 
-  #dependencia economica de la madre
-  madre<-readline(prompt = "¿Su madre depende economicamente de usted (poner si o no)? ")
+    #dependencia economica de la madre
+    madre<-readline(prompt = "¿Su madre depende economicamente de usted (poner si o no)? ")
 
-  #edad del padre en caso de depender economicamente
-  if(madre=="si"){
-    #edad de la madre
-    edad_madre<-as.numeric(readline(prompt = "¿Cuántos años tiene su madre?: "))
-    #sexo de la madre
-    sexo_madre<-"m"
-  }else{
-    edad_madre<-"NA"
-    sexo_madre<-"NA"
-    }
+    #edad del padre en caso de depender economicamente
+    if(madre=="si"){
+      #edad de la madre
+      edad_madre<-as.numeric(readline(prompt = "¿Cuántos años tiene su madre?: "))
+      #sexo de la madre
+      sexo_madre<-"m"
+    }else{
+      edad_madre<-"NA"
+      sexo_madre<-"NA"
+      }
+  } else{
+      edad_padre<-"NA"
+      sexo_padre<-"NA"
+      edad_madre<-"NA"
+      sexo_madre<-"NA"
+  }
 
   #creamos dataframe con la edad y sexo del trabajador, conyuge, hijos y padres
   datos<- data.frame(

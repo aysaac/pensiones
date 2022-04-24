@@ -1,5 +1,5 @@
 #tarea larga2 seguridad social y pensiones
-
+hola
 ##----importar datos-----
 library(readxl)
 setwd("~/Desktop/Pensiones")

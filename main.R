@@ -1,9 +1,8 @@
 #tarea larga2 seguridad social y pensiones
-hola
-##----importar datos-----
+
+##importar librerias
 library(readxl)
-setwd("~/Desktop/Pensiones")
-#-----------------------
+
 
 #hacer dataframe con INPC
 INPC <- read_excel("Datos.xlsx", sheet = "INPC")

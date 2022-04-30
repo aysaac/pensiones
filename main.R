@@ -28,7 +28,7 @@ if(semanas_cotizadas>250){
 
   #salario promedio diario de los ultimos 10 años trabajados, si no trabajó un año se agrega otro más
   Salario_diario<-c()
-  Año<-c()
+  Ano<-c()
   cc<-10
   k<-1
   while (cc!=0) {

@@ -12,7 +12,8 @@ UDIs<-  read_excel("Datos.xlsx", sheet = "UDIs")
 Desercion_Escolar<- read_excel("Datos.xlsx", sheet = "Desercion escolar")
 
 #preguntar la fecha de hoy
-fecha_hoy<-Sys.Date()
+# fecha_hoy<-Sys.Date()
+fecha_hoy<-as.Date("2022-03-18")
 
 #sexo del trabajador
 cat("¿Se identifica como hombre: h o mujer: m? ")
@@ -32,21 +33,21 @@ if(semanas_cotizadas>250){
 
   #salario promedio diario de los ultimos 10 años trabajados, si no trabajó un año se agrega otro más
   Salario_diario<-c()
-  Año<-c()
+  ano<-c()
   cc<-10
   k<-1
 
   while (cc!=0) {
     cat(paste("¿Cuál fue su salario diario en ",(as.numeric(format(fecha_hoy,'%Y'))-k+1),", (si no tuvo poner 0)? "),sep = "")
     Salario_diario[k]<-as.numeric(readline())
-    Año[k]<-(as.numeric(format(fecha_hoy,'%Y'))-k+1)
+    ano[k]<-(as.numeric(format(fecha_hoy,'%Y'))-k+1)
     if(Salario_diario[k]==0){
       cc<-cc+1
     }
     cc<-cc-1
     k<-k+1
   }
-  carrera_salarial<-cbind(Año,Salario_diario)
+  carrera_salarial<-cbind(ano,Salario_diario)
 
   #saber si el trabajador tiene conyuge
   cat("¿Tiene conyuge (poner si o no)? ")
@@ -86,7 +87,8 @@ if(semanas_cotizadas>250){
       cat( paste("Edad del hijo ",i,": ",sep = ""))
       edad_hijos[i]<-as.numeric(readline())
       #invalidez de los hijos
-      invalidez_hijos[i]<-readline(prompt = paste("¿Su hijo ", i," se encuentra invalido? ",sep = ""))
+      cat("¿Su hijo ", i," se encuentra invalido? ",sep = "")
+      invalidez_hijos[i]<-readline()
     }
   }
 
@@ -139,15 +141,15 @@ if(semanas_cotizadas>250){
   #creamos un vector con el nombre de los hijos para ponerlos en el dataframe de datos
   nombres_hijos<-c()
   for (i in 1:length(edad_hijos)) {
-    nombres_hijos[i]<-paste0("Hijo",i)
+    nombres_hijos[i]<-paste("Hijo",i)
   }
 
   #ponemos los nombres de los familiares en el dataframe de datos
   row.names(datos)<-c("Trabajador", "Conyuge", nombres_hijos, "Padre", "Madre")
 
 
-cat("No tiene derecho a pensión")
-}else{readline()}
+
+}else{cat("No tiene derecho a pensión")}
 
 #las variables que necesitan para sus funciones
 fecha_hoy

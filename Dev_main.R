@@ -11,7 +11,7 @@ UDIs<-  read_excel("Datos.xlsx", sheet = "UDIs")
 #hacer dataframe con Desercion Escolar
 Desercion_Escolar<- read_excel("Datos.xlsx", sheet = "Desercion escolar")
 tasas<- read_excel("Datos.xlsx", sheet = "Tasas")
-
+tasa_ajuste_salario<- read_excel("Datos.xlsx", sheet = "salario_ajustado")
 #preguntar la fecha de hoy
 # fecha_hoy<-Sys.Date()
 fecha_hoy<-as.Date("2022-3-18")

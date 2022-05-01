@@ -10,10 +10,11 @@ INPC <- read_excel("Datos.xlsx", sheet = "INPC")
 UDIs<-  read_excel("Datos.xlsx", sheet = "UDIs")
 #hacer dataframe con Desercion Escolar
 Desercion_Escolar<- read_excel("Datos.xlsx", sheet = "Desercion escolar")
+tasas<- read_excel("Datos.xlsx", sheet = "Tasas")
 
 #preguntar la fecha de hoy
 # fecha_hoy<-Sys.Date()
-fecha_hoy<-as.Date("2022-03-18")
+fecha_hoy<-as.Date("2022-3-18")
 
 #sexo del trabajador
 cat("¿Se identifica como hombre: h o mujer: m? ")

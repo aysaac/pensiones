@@ -14,7 +14,7 @@ tasas<- read_excel("Datos.xlsx", sheet = "Tasas")
 tasa_ajuste_salario<- read_excel("Datos.xlsx", sheet = "salario_ajustado")
 #preguntar la fecha de hoy
 # fecha_hoy<-Sys.Date()
-fecha_hoy<-as.Date("2022-3-18")
+fecha_hoy<-as.Date("2022-2-18")
 
 #sexo del trabajador
 cat("¿Se identifica como hombre: h o mujer: m? ")

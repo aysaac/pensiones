@@ -1,12 +1,18 @@
 library(lifecontingencies)
-get_life_table<- function(sexo){
-  if (sexo=="m"){
+get_life_table<- function(tabla){
+  if (tabla=="m"){
     table <- read_excel("Datos.xlsx", sheet = "Mlx")
     lifet<-probs2lifetable(table$px, radix = 1000000000000, type = "px", name="Tabla de Mujer" )
     lifet
     print('mujer')
-  }else{
+  }
+  if(tabla=="h"){
     table <- read_excel("Datos.xlsx", sheet = "Hlx")
+    lifet<-probs2lifetable(table$px, radix = 1000000000000, type = "px", name="Tabla de Hombre" )
+    print('hombre')
+  }
+    if(tabla=="inv"){
+    table <- read_excel("Datos.xlsx", sheet = "qxinv")
     lifet<-probs2lifetable(table$px, radix = 1000000000000, type = "px", name="Tabla de Hombre" )
     print('hombre')
   }
